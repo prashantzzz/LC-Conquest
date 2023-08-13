@@ -1,18 +1,17 @@
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        int reqd=1;
-        //replacing +ve duplicates with -1
-        for(int i=0; i<nums.size()-1; i++){ 
-            if(nums[i]>0 && nums[i]==nums[i+1])nums[i]=-1;
+        int i = 0, n = nums.size();
+        while(i < n){
+            if(nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i])
+                swap(nums[i], nums[nums[i]-1]);
+            else
+                i++;
         }
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i]>0){
-                if(nums[i]!=reqd) return reqd;
-                reqd++; //for duplications
-            }
+        for(i = 0; i < n; ++i){
+            if(nums[i] != (i+1))
+                return i+1;
         }
-        return reqd;
+        return n+1;
     }
 };
