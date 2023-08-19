@@ -10,7 +10,6 @@ public:
                 j++;
             }
             if(mp[nums[i]] && (i-j)<=k) return true;
-            cout<<i<<" - "<<j<<endl;
             mp[nums[i]]++;
         }
         return false;
