@@ -10,7 +10,7 @@ public:
     }
     bool repeatedSubstringPattern(string s) {
         int i=0,j=1;
-        while(j<s.length()){
+        while(j<s.length()/2 +1){
             if(s[i]!=s[j]) {i=0; j++;}
             else {
                 if( s.length()%j==0 && is_true(j,s))return true;
