@@ -13,7 +13,7 @@ public:
         while(j<s.length()){
             if(s[i]!=s[j]) {i=0; j++;}
             else {
-                if(is_true(j,s))return true;
+                if( s.length()%j==0 && is_true(j,s))return true;
                 else j++;
             }
                 
